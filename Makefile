@@ -1,15 +1,15 @@
-OBJS=*.o
-SRCS=*.c
-CC=gcc
+SRCS			=	*.c
+OBJS			=	$(SRCS:.c=.o)
+CC				=	cc
 CFLAGS=-Wall -Wextra -Werror
 NAME=libft.a
 BONUS_SRCS= *_bn.c
 BONUS_OBJS= *_bn.o
 
-all : ${NAME}
+all				:	${NAME}
 
-bonus : ${BONUS_OBJS} ${OBJS}
-	ar -rc libft.a ${BONUS_OBJS} ${OBJS}
+bonus			:	${BONUS_OBJS} ${OBJS}
+					ar -rc libft.a ${BONUS_OBJS} ${OBJS}
 
 ${NAME} : ${OBJS}
 	ar -rc libft.a ${OBJS}
@@ -17,8 +17,8 @@ ${NAME} : ${OBJS}
 ${OBJS} : 
 	${CC} ${CFLAGS} -c ${SRCS}
 
-${BONUS_OBJS} :
-	${CC} ${CFLAGS} -c ${BONUS_SRCS}
+${BONUS_OBJS}	:
+	${CC} ${CFLAGS} -c ${BONUS_SRCS} 
 
 clean :
 	rm -f $(OBJS) 

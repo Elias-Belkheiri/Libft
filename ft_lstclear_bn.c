@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:27:14 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/18 15:29:40 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/19 20:00:12 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void ft_delndcl(t_list *ptr, void (*del)(void *))
+static void	ft_delndcl(t_list *ptr, void (*del)(void *))
 {
-    if (ptr->next)
-        ft_delndcl(ptr->next, del);
-    ft_lstdelone(ptr, del);
+	if (ptr->next)
+		ft_delndcl(ptr->next, del);
+	ft_lstdelone(ptr, del);
 }
 
-void ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*ptr;
+
 	if (lst && del)
 	{
-		t_list *ptr;
 		ptr = *lst;
 		ft_delndcl(ptr, del);
-		*lst= NULL;
+		*lst = NULL;
 	}
 }

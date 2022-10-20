@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:55:59 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/19 10:13:14 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/20 10:26:25 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strlcpy(char *dst, const char *src, int dstsize)
 	if (!dstsize)
 		return (ft_strlen(s));
 	if (dstsize <= 0)
-		dstsize = ft_strlen(s) + 1;	
+		dstsize = ft_strlen(s) + 1;
 	while (dstsize-- > 1 && src[i])
 	{
 		dst[i] = src[i];
