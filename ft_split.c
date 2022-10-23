@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:52:03 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/19 20:13:38 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/22 10:55:13 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ char	**ft_split(char const *s, char c)
 	char	*str;
 
 	str = (char *)s;
+	if (!str)
+		return (NULL);
 	p = malloc((ft_count_words(str, c) + 1) * sizeof(char *));
 	if (p == NULL)
 		return (NULL);

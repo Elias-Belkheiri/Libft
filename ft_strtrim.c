@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:02:19 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/18 13:27:01 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/22 10:48:43 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	tr = (char *)set;
 	i = 0;
 	j = 0;
+	if (!str)
+		return (0);
 	while (ft_check(tr, str[i]))
 		i++;
 	len = ft_strlen(str) - 1;

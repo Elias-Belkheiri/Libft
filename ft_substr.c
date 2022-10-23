@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 14:55:45 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/16 18:39:01 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/23 10:58:28 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*dup;
 
 	str = (char *)s;
-	if (start > (size_t)ft_strlen(str))
+	if (!str)
+		return (NULL);
+	if (start > ft_strlen(str))
 		return (ft_strdup(""));
-	if (len > (size_t)ft_strlen(str + start))
+	if (len > ft_strlen(str + start))
 	{
 		dup = malloc(ft_strlen(str + start) + 1);
 		len = ft_strlen(str + start);
@@ -32,5 +34,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(dup, str + start, len + 1);
 	return (dup);
 }
-
-// Hello There 

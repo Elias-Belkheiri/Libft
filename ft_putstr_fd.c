@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 09:52:14 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/13 19:04:05 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/22 10:53:54 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	while (*s)
 	{
 		write (fd, s, 1);

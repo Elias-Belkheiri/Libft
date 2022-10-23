@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 16:32:37 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/16 14:55:33 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/22 10:26:06 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	i = 0;
 	t = (char *)haystack;
 	s = (char *)needle;
+	if (!t && !len)
+		return (0);
 	if (!ft_strlen(s))
 		return (t);
 	if (len > ft_strlen(t))
