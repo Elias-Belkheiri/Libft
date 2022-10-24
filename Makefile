@@ -38,9 +38,9 @@ ${BONUS_OBJS}	:
 					${CC} ${CFLAGS} -c ${BONUS_SRCS} 
 
 clean			:
-					rm -f $(OBJS) 
+					rm -f $(OBJS) ${BONUS_OBJS}
 
 fclean			: clean
-					rm -f ${NAME} ${BONUS_OBJS}
+					rm -f ${NAME} 
 
 re 				: fclean all

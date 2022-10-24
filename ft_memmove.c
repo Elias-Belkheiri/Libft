@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 09:48:33 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/22 18:04:39 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:21:10 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	unsigned char	*d;
-	unsigned char	*s;
+	char	*d;
+	char	*s;
 
 	d = dst;
-	s = (unsigned char *)src;
+	s = (char *)src;
 	if (dst < src)
 		ft_memcpy(dst, src, n);
 	else

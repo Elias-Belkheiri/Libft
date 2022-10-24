@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebelkhei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:07:54 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/08 17:34:18 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:20:13 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sum;
-	int	sign;
+	int					i;
+	unsigned long long	sum;
+	int					sign;
 
 	i = 0;
 	sum = 0;
@@ -32,5 +34,9 @@ int	ft_atoi(const char *str)
 		sum = sum * 10 + str[i] - '0';
 		i++;
 	}
-	return (sum * sign);
+	if (sum > LLONG_MAX && sign == -1)
+		return (0);
+	if (sum > LLONG_MAX && sign == 1)
+		return (-1);
+	return ((int)sum * sign);
 }

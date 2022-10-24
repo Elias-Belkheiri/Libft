@@ -6,23 +6,23 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 08:18:42 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/20 14:52:57 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/23 19:47:54 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 int		ft_isalpha(int argument);
 int		ft_isdigit(int arg);
 int		ft_isalnum(int argument);
 int		ft_isascii(int a);
 int		ft_isprint(int a);
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *s);
 void	*ft_memset(void *ptr, int c, size_t n);
 void	ft_bzero(void *ptr, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);

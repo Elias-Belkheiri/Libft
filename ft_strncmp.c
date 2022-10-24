@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 19:16:46 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/16 13:02:06 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:04:20 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (-1);
 	return (0);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-
-int main()
-{
-	printf("%d\n", ft_strncmp("test\200", "test\0", 6));
-	printf("%d", strncmp("test\200", "test\0", 6));
-}
-*/

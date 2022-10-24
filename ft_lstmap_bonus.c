@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:27:34 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/21 16:31:41 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/23 11:29:34 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_list	*ft_cpy(t_list *lst, t_list *head, void *(*f)(void *))
 	t_list	*ptr;
 
 	ptr = lst;
-	while (ptr->next)
+	while (ptr)
 	{
 		if (!head)
 		{
@@ -32,7 +32,6 @@ static t_list	*ft_cpy(t_list *lst, t_list *head, void *(*f)(void *))
 		}
 		ptr = ptr->next;
 	}
-	nw_lst->next = ft_lstnew(f(ptr->content));
 	return (head);
 }
 

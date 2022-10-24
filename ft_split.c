@@ -6,11 +6,12 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:52:03 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/22 10:55:13 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:21:30 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	ft_count_words(char *str, char c)
 {
@@ -33,12 +34,10 @@ static int	ft_count_words(char *str, char c)
 		else
 		str++;
 	}
-	if (count)
-		return (count);
-	return (1);
+	return (count);
 }
 
-static void	ft_cpychars(char *str, char **p, char c)
+static void	ft_cpychars(char *str, char **p, char c, int a)
 {
 	int		len;
 	int		i;
@@ -53,14 +52,11 @@ static void	ft_cpychars(char *str, char **p, char c)
 		{
 			*(p++) = ft_substr(str, i, len);
 			i += len;
+			a--;
 		}
 		else
 		i++;
 	}
-	if (!i)
-		while (*p)
-			*(p++) = NULL;
-	else
 	*p = NULL;
 }
 
@@ -75,6 +71,6 @@ char	**ft_split(char const *s, char c)
 	p = malloc((ft_count_words(str, c) + 1) * sizeof(char *));
 	if (p == NULL)
 		return (NULL);
-	ft_cpychars(str, p, c);
+	ft_cpychars(str, p, c, ft_count_words(str, c) + 1);
 	return (p);
 }
