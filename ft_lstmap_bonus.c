@@ -6,7 +6,7 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:27:34 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/23 11:29:34 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:52:49 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,15 @@ static t_list	*ft_cpy(t_list *lst, t_list *head, void *(*f)(void *))
 		if (!head)
 		{
 			head = ft_lstnew(f(ptr->content));
+			if (!head)
+				return (NULL);
 			nw_lst = head;
 		}
 		else
 		{
 			nw_lst->next = ft_lstnew(f(ptr->content));
+			if (!nw_lst->next)
+				return (NULL);
 			nw_lst = nw_lst->next;
 		}
 		ptr = ptr->next;
@@ -43,6 +47,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (lst && f && del)
 	{
 		head = ft_cpy(lst, head, f);
+		if (!head)
+			ft_lstclear(&head, del);
 		return (head);
 	}
 	return (NULL);

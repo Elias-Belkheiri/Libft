@@ -6,12 +6,18 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:52:03 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/24 12:21:30 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:00:52 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
+static void	ft_free_all_mfs(char **p)
+{
+	while (*p)
+		free(p++);
+	free(p);
+}
 
 static int	ft_count_words(char *str, char c)
 {
@@ -37,12 +43,14 @@ static int	ft_count_words(char *str, char c)
 	return (count);
 }
 
-static void	ft_cpychars(char *str, char **p, char c, int a)
+static void	ft_cpychars(char *str, char **p, char c)
 {
 	int		len;
 	int		i;
+	char	**ptr;
 
 	i = 0;
+	ptr = p;
 	while (str[i])
 	{
 		len = 0;
@@ -50,9 +58,11 @@ static void	ft_cpychars(char *str, char **p, char c, int a)
 			len++;
 		if (len)
 		{
-			*(p++) = ft_substr(str, i, len);
+			*p = ft_substr(str, i, len);
+			if (!p)
+				return (ft_free_all_mfs(ptr));
+			p++;
 			i += len;
-			a--;
 		}
 		else
 		i++;
@@ -71,6 +81,6 @@ char	**ft_split(char const *s, char c)
 	p = malloc((ft_count_words(str, c) + 1) * sizeof(char *));
 	if (p == NULL)
 		return (NULL);
-	ft_cpychars(str, p, c, ft_count_words(str, c) + 1);
+	ft_cpychars(str, p, c);
 	return (p);
 }
